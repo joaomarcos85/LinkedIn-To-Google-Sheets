@@ -1,0 +1,32 @@
+{
+  "name": "LinkedIn To Google Sheets",
+  "version": "1.0.0",
+  "description": "LinkedIn To Google Sheets",
+  "manifest_version": 3,
+  "author": "João Marcos",
+  "action": {
+    "default_popup": "index.html",
+    "default_title": "LinkedIn To Google Sheets"
+  },
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting",
+    "tabs",
+    "downloads"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.linkedin.com/*"
+      ],
+      "js": [
+        "content.js",
+        "linkedin.js"
+      ]
+    }
+  ],
+  "background": {
+    "service_worker": "worker_wrapper.js"
+  }
+}
